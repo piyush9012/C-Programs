@@ -1,19 +1,21 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
-	int n;
-	cout<<"Enter a number"<<endl;
-	cin>>n;
-	int f = 0;
-	for(int i=2; i<n; i++)
-	{
-		if(n%i == 0)
-		{
-			f = 1;
-		}
-	}
-	if(f == 0) cout<<"True"<<endl;
-	else cout<< "False"<<endl;
-	return 0;
+    int num, i;
+    cout<<"Enter the number: "<<endl;
+    cin>> num;
+    for (i = 2; i<num; i++)
+    {
+        if(num%i==0)
+        {
+            cout<<"Not a Prime Number"<<endl;
+            break;
+        }
+    }
+    if(i == num)
+    {
+        cout<<"It is a Prime Number"<<endl;
+    }
+    return 0;
 }
