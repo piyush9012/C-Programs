@@ -1,38 +1,38 @@
 #include <iostream>
 using namespace std;
-
-class counter
+class resource
 {
     static int res;
-    public:
-        static int count;
-        counter(){
-            count++;
-        }
-        ~counter()
-        {
-            count--;
-        }
+
+public:
+    static int getr();
+    void free_res()
+    {
+        res = 0;
+    }
 };
 
-int counter::count;
-void f();
-
-int main(void)
+int resource::res;
+int resource::getr()
 {
-    counter o1;
-    cout << "Object in existence: "<< counter::count <<endl;
-    counter o2;
-    cout << "Object in existence: "<< counter::count <<endl;
-    f();
-    cout << "Object in existence: ";
-    cout << counter::count << "\n";
-    return 0;
+    if (res)
+        return 0;
+    else
+    {
+        res = 1;
+        return 1;
+    }
 }
 
-void f()
+int main()
 {
-    counter temp;
-    cout << "Object in existence: ";
-    cout << counter::count << "\n";
+    resource a, b;
+    if (resource ::getr())
+        cout << "Resource under use, object a is using \n";
+    if (!resource::getr())
+        cout << "Resource busy, object b access denied \n";
+    a.free_res();
+    if (resource::getr())
+        cout << "Resource can now be used by object b \n";
+    return 0;
 }
