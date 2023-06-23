@@ -15,7 +15,7 @@ int largest(int a , int b ,int c=10)
 int main()
 {
     float x,y,z;
-    cout<<"Enter three numbera:"<<endl;
+    cout<<"Enter three numbers:"<<endl;
     cin>>x>>y>>z;
     cout<<"Largest number is: "<<largest(x,y,z)<<endl;
     cout<<"Taking 3rd number default value as 10"<<endl;
